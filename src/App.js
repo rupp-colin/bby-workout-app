@@ -1,24 +1,39 @@
 import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
+import workOuts from './config/data.js';
+import WorkoutList from './Components/WorkoutList.js';
 import './App.css';
 
+import Phases from './Components/Phases.js'
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/phase1">
+          <WorkoutList name="Phase 1" days={workOuts} />
+        </Route>
+        <Route path="/phase2">
+          <div>
+            <Link to="/">Home</Link>
+            <p>coming soon...</p>
+          </div>
+        </Route>
+        <Route path="/phase3">
+          <div>
+            <Link to="/">Home</Link>
+            <p>coming less soon...</p>
+          </div>
+        </Route>
+        <Route path="/" component={Phases}></Route>
+      </Switch>
+    </Router>
   );
 }
 
