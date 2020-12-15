@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const WorkoutList = (props) => {
 
-  console.log(props.days);
   return (
     <div>
       <Link to='/'>Home</Link>
@@ -14,7 +13,7 @@ const WorkoutList = (props) => {
           props.days.map(x => {
             return (
               <li key={`day-${x.day}-${x.type}`}>
-                Day {x.day}: {x.type}
+                <Link to={`workout/phase1/${x.day}`}>Day {x.day}: {x.type}</Link>
               </li>
             )
             })
